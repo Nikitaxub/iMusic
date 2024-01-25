@@ -24,6 +24,8 @@
 		242165A22B5AD9CE00A1D5F6 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421659B2B5AD9CE00A1D5F6 /* SearchInteractor.swift */; };
 		242165A52B5AEEFE00A1D5F6 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */; };
 		242165A72B5AF24200A1D5F6 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */; };
+		247B75962B61725D007B47E8 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247B75952B61725D007B47E8 /* TrackCell.xib */; };
+		247B75982B61742B007B47E8 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B75972B61742B007B47E8 /* TrackCell.swift */; };
 		6EB00054C94709BC7C04988C /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C0C294DDBDD1CC7F00B10 /* Pods_iMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		2421659B2B5AD9CE00A1D5F6 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		247B75952B61725D007B47E8 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		247B75972B61742B007B47E8 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		28025BA82A592ED26A97FA11 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
 		663C0C294DDBDD1CC7F00B10 /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF1F2821A5E4A5771C354D4 /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,7 +93,6 @@
 				2421657E2B583B6800A1D5F6 /* MainTabBarController.swift */,
 				242165802B583DF600A1D5F6 /* SearchMusicViewController.swift */,
 				242165952B5AD93800A1D5F6 /* Services */,
-				242165822B58897A00A1D5F6 /* SearchResponse.swift */,
 				2421656A2B583B5500A1D5F6 /* AppDelegate.swift */,
 				242165A82B5AF24700A1D5F6 /* Helpers */,
 				2421656C2B583B5500A1D5F6 /* SceneDelegate.swift */,
@@ -104,6 +107,7 @@
 		242165862B5AD84900A1D5F6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				247B75942B617215007B47E8 /* Cell */,
 				242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */,
 				2421659A2B5AD9CE00A1D5F6 /* SearchViewController.swift */,
 				2421659B2B5AD9CE00A1D5F6 /* SearchInteractor.swift */,
@@ -118,6 +122,7 @@
 		242165952B5AD93800A1D5F6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				247B75992B627B82007B47E8 /* Models */,
 				242165842B599D4A00A1D5F6 /* NetworkService.swift */,
 			);
 			path = Services;
@@ -129,6 +134,23 @@
 				242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		247B75942B617215007B47E8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				247B75952B61725D007B47E8 /* TrackCell.xib */,
+				247B75972B61742B007B47E8 /* TrackCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		247B75992B627B82007B47E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				242165822B58897A00A1D5F6 /* SearchResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		865875F402CF5BC00AE05FAF /* Pods */ = {
@@ -211,6 +233,7 @@
 				242165772B583B5600A1D5F6 /* LaunchScreen.storyboard in Resources */,
 				242165742B583B5600A1D5F6 /* Assets.xcassets in Resources */,
 				242165A52B5AEEFE00A1D5F6 /* SearchViewController.storyboard in Resources */,
+				247B75962B61725D007B47E8 /* TrackCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +291,7 @@
 				2421656F2B583B5500A1D5F6 /* ViewController.swift in Sources */,
 				242165832B58897A00A1D5F6 /* SearchResponse.swift in Sources */,
 				242165A22B5AD9CE00A1D5F6 /* SearchInteractor.swift in Sources */,
+				247B75982B61742B007B47E8 /* TrackCell.swift in Sources */,
 				2421656B2B583B5500A1D5F6 /* AppDelegate.swift in Sources */,
 				2421657F2B583B6800A1D5F6 /* MainTabBarController.swift in Sources */,
 				2421659E2B5AD9CE00A1D5F6 /* SearchWorker.swift in Sources */,
