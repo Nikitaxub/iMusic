@@ -25,6 +25,8 @@
 		242165A52B5AEEFE00A1D5F6 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */; };
 		242165A72B5AF24200A1D5F6 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */; };
 		243AA3492B653D6400594221 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243AA3482B653D6400594221 /* FooterView.swift */; };
+		243AA34C2B6690CE00594221 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243AA34B2B6690CE00594221 /* TrackDetailView.xib */; };
+		243AA34E2B6690E800594221 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243AA34D2B6690E800594221 /* TrackDetailView.swift */; };
 		247B75962B61725D007B47E8 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247B75952B61725D007B47E8 /* TrackCell.xib */; };
 		247B75982B61742B007B47E8 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B75972B61742B007B47E8 /* TrackCell.swift */; };
 		6EB00054C94709BC7C04988C /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 663C0C294DDBDD1CC7F00B10 /* Pods_iMusic.framework */; };
@@ -51,6 +53,8 @@
 		242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		243AA3482B653D6400594221 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		243AA34B2B6690CE00594221 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		243AA34D2B6690E800594221 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		247B75952B61725D007B47E8 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		247B75972B61742B007B47E8 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		28025BA82A592ED26A97FA11 /* Pods-iMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.release.xcconfig"; path = "Target Support Files/Pods-iMusic/Pods-iMusic.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		242165862B5AD84900A1D5F6 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				243AA34A2B6690AF00594221 /* TrackDetailView */,
 				243AA3472B653D5000594221 /* FooterView */,
 				247B75942B617215007B47E8 /* Cell */,
 				242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */,
@@ -145,6 +150,15 @@
 				243AA3482B653D6400594221 /* FooterView.swift */,
 			);
 			path = FooterView;
+			sourceTree = "<group>";
+		};
+		243AA34A2B6690AF00594221 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				243AA34B2B6690CE00594221 /* TrackDetailView.xib */,
+				243AA34D2B6690E800594221 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 		247B75942B617215007B47E8 /* Cell */ = {
@@ -245,6 +259,7 @@
 				242165742B583B5600A1D5F6 /* Assets.xcassets in Resources */,
 				242165A52B5AEEFE00A1D5F6 /* SearchViewController.storyboard in Resources */,
 				247B75962B61725D007B47E8 /* TrackCell.xib in Resources */,
+				243AA34C2B6690CE00594221 /* TrackDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +327,7 @@
 				242165A02B5AD9CE00A1D5F6 /* SearchModels.swift in Sources */,
 				2421656D2B583B5500A1D5F6 /* SceneDelegate.swift in Sources */,
 				2421659D2B5AD9CE00A1D5F6 /* SearchPresenter.swift in Sources */,
+				243AA34E2B6690E800594221 /* TrackDetailView.swift in Sources */,
 				242165852B599D4A00A1D5F6 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
