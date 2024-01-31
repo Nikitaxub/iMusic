@@ -25,6 +25,9 @@
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="Drag Down"/>
+                            <connections>
+                                <action selector="dragDownButtonTapped:" destination="tdp-gP-N1d" eventType="touchUpInside" id="aeu-6I-EdL"/>
+                            </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rGF-WN-6OI">
                             <rect key="frame" x="0.0" y="54" width="333" height="333"/>
@@ -37,6 +40,9 @@
                             <subviews>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="S4L-6U-j9W">
                                     <rect key="frame" x="-2" y="0.0" width="337" height="31"/>
+                                    <connections>
+                                        <action selector="handleCurrentTimeSlider:" destination="tdp-gP-N1d" eventType="valueChanged" id="rtY-ON-bWQ"/>
+                                    </connections>
                                 </slider>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uZo-SP-mbL">
                                     <rect key="frame" x="0.0" y="30" width="333" height="18"/>
@@ -81,16 +87,25 @@
                                     <rect key="frame" x="0.0" y="73" width="111" height="34"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="Left"/>
+                                    <connections>
+                                        <action selector="previousTrack:" destination="tdp-gP-N1d" eventType="touchUpInside" id="axW-nZ-pTe"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itI-UL-TEq">
                                     <rect key="frame" x="111" y="54.333333333333258" width="111" height="71"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="pause"/>
+                                    <connections>
+                                        <action selector="playPauseAction:" destination="tdp-gP-N1d" eventType="touchUpInside" id="ZBh-0G-rYL"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEY-7C-7M1">
                                     <rect key="frame" x="222" y="73" width="111" height="34"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="Right"/>
+                                    <connections>
+                                        <action selector="nextTrack:" destination="tdp-gP-N1d" eventType="touchUpInside" id="lir-dw-uZm"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -106,6 +121,9 @@
                                 </imageView>
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eIZ-hi-igM">
                                     <rect key="frame" x="25" y="0.0" width="283" height="18"/>
+                                    <connections>
+                                        <action selector="handleVolumeSlider:" destination="tdp-gP-N1d" eventType="valueChanged" id="EEC-Cg-DRb"/>
+                                    </connections>
                                 </slider>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconMax" translatesAutoresizingMaskIntoConstraints="NO" id="7qL-BI-nHD">
                                     <rect key="frame" x="316" y="0.0" width="17" height="17"/>
@@ -128,12 +146,14 @@
                 <constraint firstItem="Ag8-ba-ZD4" firstAttribute="trailing" secondItem="9ET-XY-riU" secondAttribute="trailing" constant="30" id="vma-5W-AGf"/>
             </constraints>
             <connections>
-                <outlet property="authorLabel" destination="VxA-sT-4b2" id="ntI-X1-cnd"/>
-                <outlet property="currentTimeLabel" destination="Ktw-5V-abH" id="qJv-8I-EXr"/>
-                <outlet property="currentTimeSlider" destination="S4L-6U-j9W" id="alW-Gg-sYJ"/>
-                <outlet property="durationLabel" destination="KNA-m4-kAP" id="3QB-gM-oSq"/>
-                <outlet property="trackImageView" destination="9ET-XY-riU" id="jTh-0n-8z3"/>
-                <outlet property="trackTitleLabel" destination="tgX-vu-KPY" id="zda-cG-GH8"/>
+                <outlet property="authorTitleLabel" destination="VxA-sT-4b2" id="Bzk-8j-RlT"/>
+                <outlet property="currentTimeLabel" destination="Ktw-5V-abH" id="2Kt-7L-KG2"/>
+                <outlet property="currentTimeSlider" destination="S4L-6U-j9W" id="zfK-Yb-uX1"/>
+                <outlet property="durationLabel" destination="KNA-m4-kAP" id="VcV-Qm-JXJ"/>
+                <outlet property="playPauseButton" destination="itI-UL-TEq" id="xyV-mD-DSS"/>
+                <outlet property="trackImageView" destination="rGF-WN-6OI" id="FjU-TZ-ZOX"/>
+                <outlet property="trackTitleLabel" destination="tgX-vu-KPY" id="4oL-jX-fkt"/>
+                <outlet property="volumeSlider" destination="eIZ-hi-igM" id="wjc-FL-oeD"/>
             </connections>
             <point key="canvasLocation" x="274" y="19"/>
         </view>
