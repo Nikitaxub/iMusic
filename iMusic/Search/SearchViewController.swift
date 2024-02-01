@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchDisplayLogic: class {
+protocol SearchDisplayLogic: AnyObject {
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
 
@@ -50,6 +50,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         setup()
         setupTableView()
         setupSearchBar()
+        searchBar(searchController.searchBar, textDidChange: "Порнофильмы")
     }
     
     private func setupSearchBar() {
