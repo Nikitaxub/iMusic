@@ -25,6 +25,7 @@
 		242165A52B5AEEFE00A1D5F6 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */; };
 		242165A72B5AF24200A1D5F6 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */; };
 		2432B7252B6C3390006D2DC8 /* CMTime + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432B7242B6C3390006D2DC8 /* CMTime + Extension.swift */; };
+		2432B7272B6D54EA006D2DC8 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2432B7262B6D54EA006D2DC8 /* Nib.swift */; };
 		243AA3492B653D6400594221 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243AA3482B653D6400594221 /* FooterView.swift */; };
 		243AA34C2B6690CE00594221 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 243AA34B2B6690CE00594221 /* TrackDetailView.xib */; };
 		243AA34E2B6690E800594221 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243AA34D2B6690E800594221 /* TrackDetailView.swift */; };
@@ -54,6 +55,7 @@
 		242165A42B5AEEFE00A1D5F6 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		2432B7242B6C3390006D2DC8 /* CMTime + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extension.swift"; sourceTree = "<group>"; };
+		2432B7262B6D54EA006D2DC8 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
 		243AA3482B653D6400594221 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		243AA34B2B6690CE00594221 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		243AA34D2B6690E800594221 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				242165A62B5AF24200A1D5F6 /* UIViewController + Storyboard.swift */,
 				2432B7242B6C3390006D2DC8 /* CMTime + Extension.swift */,
+				2432B7262B6D54EA006D2DC8 /* Nib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				243AA3492B653D6400594221 /* FooterView.swift in Sources */,
 				2432B7252B6C3390006D2DC8 /* CMTime + Extension.swift in Sources */,
 				247B75982B61742B007B47E8 /* TrackCell.swift in Sources */,
+				2432B7272B6D54EA006D2DC8 /* Nib.swift in Sources */,
 				2421656B2B583B5500A1D5F6 /* AppDelegate.swift in Sources */,
 				2421657F2B583B6800A1D5F6 /* MainTabBarController.swift in Sources */,
 				2421659E2B5AD9CE00A1D5F6 /* SearchWorker.swift in Sources */,
