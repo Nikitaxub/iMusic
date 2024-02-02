@@ -9,11 +9,13 @@ import UIKit
 
 protocol MainTabBarControllerDelegate: AnyObject {
     func minimizeTrackDetailController()
+    func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?)
 }
 
 class MainTabBarController: UITabBarController {
     
     let searchVC: SearchViewController = SearchViewController.loadFromStoryboard()
+    let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
     
     private var minimizedTopAnchorConstraint: NSLayoutConstraint!
     private var maximizedTopAnchorConstraint: NSLayoutConstraint!
@@ -27,6 +29,8 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3776089847, alpha: 1)
         
         setupTrackDetailView()
+        
+        searchVC.tabBarDelegate = self
         
         viewControllers = [
             generateViewController(rootViewController: searchVC, image: "search", title: "Search"),
@@ -45,15 +49,13 @@ class MainTabBarController: UITabBarController {
     
     private func setupTrackDetailView() {
         
-        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
-        trackDetailView.backgroundColor = .green
         trackDetailView.tabBarDelegate = self
         trackDetailView.delegate = searchVC
         view.insertSubview(trackDetailView, belowSubview: tabBar)
         
         trackDetailView.translatesAutoresizingMaskIntoConstraints = false
         minimizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
-        maximizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor)
+        maximizedTopAnchorConstraint = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
         bottomAnchorConstraint = trackDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.frame.height)
         
         bottomAnchorConstraint.isActive = true
@@ -66,9 +68,33 @@ class MainTabBarController: UITabBarController {
 
 extension MainTabBarController: MainTabBarControllerDelegate {
     
+    func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?) {
+        
+        maximizedTopAnchorConstraint.isActive = true
+        minimizedTopAnchorConstraint.isActive = false
+        
+        maximizedTopAnchorConstraint.constant = 0
+        bottomAnchorConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+            self.view.layoutIfNeeded()
+            self.tabBar.alpha = 0
+        })
+        
+        guard let viewModel = viewModel else { return }
+        
+        trackDetailView.set(viewModel: viewModel)
+    }
+    
     func minimizeTrackDetailController() {
         
         maximizedTopAnchorConstraint.isActive = false
+        bottomAnchorConstraint.constant = view.frame.height
         minimizedTopAnchorConstraint.isActive = true
         
         UIView.animate(withDuration: 0.5,
@@ -77,7 +103,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        initialSpringVelocity: 1,
                        options: .curveEaseOut,
                        animations: {
-                        self.view.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+            self.tabBar.alpha = 1
         })
     }
 }

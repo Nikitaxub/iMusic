@@ -14,12 +14,14 @@ protocol SearchDisplayLogic: AnyObject {
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
     
-    var interactor: SearchBusinessLogic?
-    var router: (NSObjectProtocol & SearchRoutingLogic)?
-    
     @IBOutlet weak var table: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
+    
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
+    var interactor: SearchBusinessLogic?
+    var router: (NSObjectProtocol & SearchRoutingLogic)?
+    
     private var searchViewModel = SearchViewModel(cells: [])
     private var timer: Timer?
     
@@ -100,15 +102,16 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellViewModel = searchViewModel.cells[indexPath.row]
         
-        let window = UIApplication.shared.connectedScenes
-            .filter({$0.activationState == .foregroundActive})
-            .compactMap({$0 as? UIWindowScene})
-            .first?.windows
-            .filter({$0.isKeyWindow}).first
-        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
-        trackDetailView.delegate = self
-        trackDetailView.set(viewModel: cellViewModel)
-        window?.addSubview(trackDetailView)
+        tabBarDelegate?.maximizeTrackDetailController(viewModel: cellViewModel)
+//        let window = UIApplication.shared.connectedScenes
+//            .filter({$0.activationState == .foregroundActive})
+//            .compactMap({$0 as? UIWindowScene})
+//            .first?.windows
+//            .filter({$0.isKeyWindow}).first
+//        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
+//        trackDetailView.delegate = self
+//        trackDetailView.set(viewModel: cellViewModel)
+//        window?.addSubview(trackDetailView)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
