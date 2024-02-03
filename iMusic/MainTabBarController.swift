@@ -84,6 +84,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        animations: {
             self.view.layoutIfNeeded()
             self.tabBar.alpha = 0
+            self.trackDetailView.miniTrackView.alpha = 0
+            self.trackDetailView.maximizedStackView.alpha = 1
         })
         
         guard let viewModel = viewModel else { return }
@@ -105,6 +107,8 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        animations: {
             self.view.layoutIfNeeded()
             self.tabBar.alpha = 1
+            self.trackDetailView.miniTrackView.alpha = 1
+            self.trackDetailView.maximizedStackView.alpha = 0
         })
     }
 }
