@@ -10,7 +10,11 @@ import SwiftUI
 
 struct Library: View {
     
-    var tracks = UserDefaults.standard.savedTracks()
+    var tabBarDelegate: MainTabBarControllerDelegate?
+    
+    @State private var tracks = UserDefaults.standard.savedTracks()
+    @State private var showingAlert = false
+    @State private var track: SearchViewModel.Cell!
     
     var body: some View {
         NavigationView {
@@ -18,7 +22,8 @@ struct Library: View {
                 GeometryReader { geometry in
                     HStack(spacing: 20) {
                         Button(action: {
-                            print("12345")
+                            track = tracks[0]
+                            tabBarDelegate?.maximizeTrackDetailController(viewModel: track)
                         }, label: {
                             Image(systemName: "play.fill")
                                 .frame(width: geometry.size.width / 2 - 10, height: 50)
@@ -27,7 +32,7 @@ struct Library: View {
                                 .cornerRadius(10)
                         })
                         Button(action: {
-                            print("54321")
+                            tracks = UserDefaults.standard.savedTracks()
                         }, label: {
                             Image(systemName: "arrow.2.circlepath")
                                 .frame(width: geometry.size.width / 2 - 10, height: 50)
@@ -39,13 +44,48 @@ struct Library: View {
                 }.padding().frame(height: 50)
                 Divider().padding(.leading).padding(.trailing)
                 
-                List(tracks) { track in
-                    LibraryCell(cell: track)
+                List {
+                    ForEach(tracks) { track in
+                        LibraryCell(cell: track)
+                            .gesture(LongPressGesture()
+                                .onEnded{ _ in
+                                    self.track = track
+                                    showingAlert = true
+                                }.simultaneously(with: TapGesture()
+                                    .onEnded{ _ in
+                                        self.track = track
+                                        tabBarDelegate?.maximizeTrackDetailController(viewModel: self.track)
+                                    }))
+                    }
+                    .onDelete(perform: { indexSet in
+                        delete(at: indexSet)
+                    })
                 }
             }
+            .actionSheet(isPresented: $showingAlert, content: {
+                ActionSheet(title: Text("Are you sure you want to delete this track?"), buttons: [.destructive(Text("Delete"), action: {
+                    delete(track: track)
+                }), .cancel()])
+            })
             .navigationBarTitle("Library")
         }
-        
+    }
+    
+    private func delete(at offsets: IndexSet) {
+        tracks.remove(atOffsets: offsets)
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
+        }
+    }
+    
+    private func delete(track: SearchViewModel.Cell) {
+        guard let index = tracks.firstIndex(of: track) else { return }
+        tracks.remove(at: index)
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: tracks, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: UserDefaults.favouriteTrackKey)
+        }
     }
 }
 
@@ -67,7 +107,6 @@ struct LibraryCell: View {
                 Text(cell.artistName)
             }
         }
-        
     }
 }
 
