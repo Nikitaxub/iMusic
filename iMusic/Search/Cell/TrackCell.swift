@@ -56,16 +56,16 @@ class TrackCell: UITableViewCell {
     @IBAction func addTrack(_ sender: UIButton) {
         
         let defaults = UserDefaults.standard
-        guard let cell = cell else { return }
-        addTrackButton.isHidden = true
+        
         var listOfTracks = defaults.savedTracks()
-        print(listOfTracks.count)
+        
+        guard let cell = cell else { return }
         listOfTracks.append(cell)
-        print(listOfTracks.count)
+        
+        addTrackButton.isHidden = true
+        
         if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: listOfTracks, requiringSecureCoding: false) {
-            print(UserDefaults.favouriteTrackKey)
             defaults.setValue(savedData, forKey: UserDefaults.favouriteTrackKey)
         }
-        print("успешно", defaults.savedTracks().count)
     }
 }
